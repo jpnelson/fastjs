@@ -8,7 +8,9 @@ const cache = new NodeCache({ stdTTL: 60 });
 app.get("/", (req, res) => {
   const subdomains = req.subdomains;
   if (subdomains.length === 0) {
-    res.redirect("fastjs.link");
+    res.send(
+      "Welcome to fastjs.link. To get started, try <your-npm-package-name>.fastjs.link . Add a `homepage` to your package.json to customize!"
+    );
     return;
   }
   if (subdomains.length === 1) {
