@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 
     cache.get(package, (cacheErr, cacheData) => {
       if (!cacheErr && cacheData) {
-        res.send(cacheData);
+        res.redirect(cacheData);
         return;
       }
       request(
