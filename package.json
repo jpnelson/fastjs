@@ -1,6 +1,6 @@
 {
   "name": "fastjs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "fastjs.link",
   "main": "index.js",
   "scripts": {
