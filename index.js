@@ -9,7 +9,7 @@ app.get("/", (req, res) => {
   const subdomains = req.subdomains;
   if (subdomains.length === 0) {
     res.send(
-      `Welcome to fastjs.link. To get started, try your-npm-package-name.fastjs.link (eg <a href="react.fastjs.link">react.fastjs.link</a>) . Add a homepage field to your package.json to customize!`
+      `Welcome to fastjs.link. To get started, try your-npm-package-name.fastjs.link (eg <a href="https://react.fastjs.link">react.fastjs.link</a>) . Add a homepage field to your package.json to customize!`
     );
     return;
   }
