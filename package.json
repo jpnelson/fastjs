@@ -1,9 +1,11 @@
 {
   "name": "fastjs",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "fastjs.link",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "build": "./bin/build.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -11,6 +13,7 @@
   "dependencies": {
     "eslint": "^4.19.1",
     "express": "^4.16.3",
-    "prettier": "^1.13.3"
+    "prettier": "^1.13.3",
+    "request": "^2.87.0"
   }
 }
