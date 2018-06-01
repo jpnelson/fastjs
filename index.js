@@ -5,6 +5,7 @@ var request = require("request");
 
 app.get("/", (req, res) => {
   const subdomains = req.subdomains;
+  console.log(subdomains);
   if (subdomains.length === 0) {
     res.sendStatus(404);
     return;
