@@ -29,10 +29,15 @@ app.get("/", (req, res) => {
             return;
           }
 
-          const json = JSON.parse(body);
-
-          const homepage =
-            json.homepage || `https://www.npmjs.com/package/${package}`;
+          let homepage;
+          try {
+            const json = JSON.parse(body);
+            homepage =
+              json.homepage || `https://www.npmjs.com/package/${package}`;
+          } catch (e) {
+            console.error(`Error: ${e}`);
+            homepage = `https://www.npmjs.com/package/${package}`;
+          }
 
           cache.set(package, homepage, () => {
             res.redirect(homepage);
