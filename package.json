@@ -10,6 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
+  "homepage": "fastjs.link",
   "license": "ISC",
   "dependencies": {
     "eslint": "^4.19.1",

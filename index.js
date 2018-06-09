@@ -4,13 +4,14 @@ const app = express();
 const request = require("request");
 const NodeCache = require("node-cache");
 const cache = new NodeCache({ stdTTL: 60 });
+const fs = require("fs");
+
+const html = fs.readFileSync("./index.html", "utf8");
 
 app.get("/", (req, res) => {
   const subdomains = req.subdomains;
   if (subdomains.length === 0) {
-    res.send(
-      `Welcome to fastjs.link. To get started, try your-npm-package-name.fastjs.link (eg <a href="https://react.fastjs.link">react.fastjs.link</a>) . Add a homepage field to your package.json to customize!`
-    );
+    res.send(html);
     return;
   }
   if (subdomains.length === 1) {
