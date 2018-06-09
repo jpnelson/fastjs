@@ -20,3 +20,7 @@ The method for doing this will vary by operating system. On Mac OSX, add an entr
 ```
 
 Then, you can test the subdomain redirects by visiting `react.fastjs.local`.
+
+# Monitoring
+
+Set the environment variable `RAVEN_URL` to use Raven for monitoring. 

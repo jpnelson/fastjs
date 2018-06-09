@@ -5,6 +5,12 @@ const request = require("request");
 const NodeCache = require("node-cache");
 const cache = new NodeCache({ stdTTL: 60 });
 const fs = require("fs");
+const Raven = require("raven");
+
+let ravenUrl = process.env.RAVEN_URL;
+if (ravenUrl) {
+  Raven.config(process.env.RAVEN_URL).install();
+}
 
 const html = fs.readFileSync("./index.html", "utf8");
 
