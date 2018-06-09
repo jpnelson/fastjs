@@ -10,6 +10,10 @@ const Raven = require("raven");
 let ravenUrl = process.env.RAVEN_URL;
 if (ravenUrl) {
   Raven.config(process.env.RAVEN_URL).install();
+
+  // The request handler must be the first middleware on the app
+  app.use(Raven.requestHandler());
+  app.use(Raven.errorHandler());
 }
 
 const html = fs.readFileSync("./index.html", "utf8");
@@ -58,5 +62,23 @@ app.get("/", (req, res) => {
     return;
   }
 });
+
+if (ravenUrl) {
+  // The error handler must be before any other error middleware
+  app.use(Raven.errorHandler());
+
+  // Optional fallthrough error handler
+  app.use(function onError(err, req, res, next) {
+    // The error id is attached to `res.sentry` to be returned
+    // and optionally displayed to the user for support.
+    res.statusCode = 500;
+    res.send(
+      `Sorry! Something went wrong 💥. The maintainers have been notified, but if you'd like, you can <a href="https://github.com/jpnelson/fastjs/issues/new?title=Error%20in%20production&body=error_id=%22${
+        res.sentry
+      }%22">raise an issue on github</a> to give more details\n`
+    );
+    res.end();
+  });
+}
 
 app.listen(8080, () => console.log("App listening on port 8080"));
