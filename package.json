@@ -11,7 +11,7 @@
   },
   "author": "",
   "homepage": "fastjs.link",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "eslint": "^4.19.1",
     "express": "^4.16.3",
